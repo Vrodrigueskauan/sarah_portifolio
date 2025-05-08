@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+
+ 
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+
+
+
+  @font-face {
+    font-family: 'ghotic';
+    src: url('../fontes/SingleGhost\ regular.ttf') format('truetype');
+  }
+
+
+  .btn {
+    font-size: 13px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: #9b59b6;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  
+  /* Cria uma linha abaixo do botão */
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* Altura da linha */
+    width: 0; /* Começa invisível */
+    background-color: #6C1BA8; /* Cor da linha */
+    transition: width 0.5s ease; /* Suaviza a expansão */
+  }
+  
+  /* Hover no botão */
+  .btn:hover {
+    color: #6C1BA8; /* Muda a cor do texto ao passar o mouse */
+    transition-delay: 0.5s;
+  }
+  
+  /* Quando passa o mouse, a linha se expande */
+  .btn:hover::before {
+    width: 100%; /* Linha se estende de ponta a ponta */
+  }
+  
+  .btn::after {
+    display: none;
+  }
+  
+
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  nav a.active {
+    color: #D2B4FF; /* Roxo claro para o link ativo */
+  }
+  
+
+  
+  .banner {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%; /* ocupa 100% da altura da janela */
+    width: 100%;  /* ocupa 100% da largura da janela */
+    background-color: #332941;
+    padding: 40px;
+    font-family: 'ghotic';
+  }
+  
+  .banner-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .banner-image img {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  .banner-text {
+    flex: 1;
+    padding-left: 40px;
+    font-family: 'ghotic';
+  }
+  
+  .banner-text h1 {
+    font-size: 13rem;
+    margin-bottom: 20px;
+  }
+  
+  .banner-text p {
+    font-size: 6.5rem;
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+  
+  .banner-text button {
+    padding: 12px 24px;
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  

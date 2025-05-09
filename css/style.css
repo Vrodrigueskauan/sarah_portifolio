@@ -25,7 +25,7 @@
     background: transparent;
     border: none;
     padding: 1em 1.5em;
-    color: #9b59b6;
+    color: #A5158C;
     text-transform: uppercase;
     position: relative;
     transition: 0.5s ease;
@@ -40,14 +40,14 @@
     bottom: 0;
     height: 2px; /* Altura da linha */
     width: 0; /* Começa invisível */
-    background-color: #6C1BA8; /* Cor da linha */
+    background-color: #F6DC43; /* Cor da linha */
     transition: width 0.5s ease; /* Suaviza a expansão */
   }
   
   /* Hover no botão */
   .btn:hover {
-    color: #6C1BA8; /* Muda a cor do texto ao passar o mouse */
-    transition-delay: 0.5s;
+    color: #F6DC43; /* Muda a cor do texto ao passar o mouse */
+    transition-delay: 0.1s;
   }
   
   /* Quando passa o mouse, a linha se expande */
@@ -58,6 +58,11 @@
   .btn::after {
     display: none;
   }
+
+  /* Saída */
+.fade-out {
+  animation: fadeOut 0.6s ease forwards;
+}
   
 
 
@@ -71,6 +76,9 @@
     top: 0;
     width: 100%;
     z-index: 10;
+    opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
   }
   
   nav a {
@@ -86,57 +94,144 @@
   }
   
 
-  
   .banner {
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
-    height: 100%; /* ocupa 100% da altura da janela */
-    width: 100%;  /* ocupa 100% da largura da janela */
-    background-color: #332941;
-    padding: 40px;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    
+
+    /* Gradiente inicial */
+    background: linear-gradient(135deg, #410445, #200124);
+    background-size: 200% 200%;
+    animation: gradientAnimation 6s ease infinite;
+  }
+
+
+
+
+/* Animação do gradiente */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+
+
+
+  .banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Transparência leve */
+    z-index: 1;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  
+  .banner-content h1 {
     font-family: 'ghotic';
+    font-size: 7rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    color: #F6DC43;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.664); /* Sombra suave escura */
+    margin-bottom: 0.3rem; /* Bem próximo do <p> */
+    opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+    
   }
   
-  .banner-image {
-    flex: 1;
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .banner-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color:#A5158C;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.5s; /* aparece depois do h1 */
+  }
+
+  .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    gap: 20px;
+    background-color: #c242ff;
+  }
+  
+
+  .title{
     text-align: center;
   }
-  
-  .banner-image img {
-    width: 90%;
-    max-width: 500px;
-    border-radius: 10px;
-  }
-  
-  .banner-text {
+
+  .text {
     flex: 1;
-    padding-left: 40px;
-    font-family: 'ghotic';
+    max-width: 50%;
   }
   
-  .banner-text h1 {
-    font-size: 13rem;
-    margin-bottom: 20px;
+  .image {
+    flex: 1;
+    max-width: 50%;
   }
   
-  .banner-text p {
-    font-size: 6.5rem;
-    margin-bottom: 20px;
-    margin-left: 50px;
+  .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
   
-  .banner-text button {
-    padding: 12px 24px;
-    background-color: #6200ea;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+  /* Responsivo para telas menores que 768px */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
   
+    .text,
+    .image {
+      max-width: 100%;
+    }
+  }

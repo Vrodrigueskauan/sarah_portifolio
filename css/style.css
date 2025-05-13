@@ -106,7 +106,7 @@
     
 
     /* Gradiente inicial */
-    background: linear-gradient(135deg, #410445, #200124);
+    background: linear-gradient(135deg, #410445, #5a425e);
     background-size: 200% 200%;
     animation: gradientAnimation 6s ease infinite;
   }

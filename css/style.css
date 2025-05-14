@@ -199,9 +199,13 @@
     align-items: center;
     padding: 20px;
     gap: 20px;
-    background-color: #c242ff;
+    background-color: #fcf5e5;
   }
   
+  .logo{
+    max-width: 930px;
+  }
+
 
   .title{
     text-align: center;
@@ -222,6 +226,139 @@
     height: auto;
     border-radius: 8px;
   }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card-footer {
+    background: white;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Botão like */
+  .like {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: relative;
+  }
+  
+  .like::after {
+    content: "like";
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s linear;
+    top: 115%;
+  }
+  
+  .like:hover > .icon {
+    transform: scale(1.2);
+  }
+  
+  .like:hover > .icon path {
+    fill: rgb(177, 139, 189);
+  }
+  
+  .like:hover::after {
+    visibility: visible;
+    opacity: 1;
+    top: 105%;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    transition: 0.2s linear;
+  }
+  
+  .icon path {
+    fill: white;
+    transition: 0.2s linear;
+  }
+  
+  /* Modal da imagem */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+  }
+  
+  .modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 1024px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
   
   /* Responsivo para telas menores que 768px */
   @media (max-width: 768px) {
@@ -234,4 +371,17 @@
     .image {
       max-width: 100%;
     }
+
+    .logo{
+      max-width: 560px;
+    }
+
+    .menu {     
+      align-items: center;        /* Centraliza verticalmente */
+      gap: 1px;                /* Espaço menor entre botões */
+      margin-left: 25px;
+
+    }
+
+
   }

@@ -12,7 +12,7 @@ const Banner = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const background = isMobile ? 'url(/banner-mobile.jpg)' : 'url(/banner-pc.jpg)'
+  const background = isMobile ? 'url(/banner-mobile.png)' : 'url(/banner-pc.png)'
 
   return (
     <section
@@ -27,14 +27,7 @@ const Banner = () => {
         flexDirection: 'column'
       }}
     >
-      <h1 style={{
-        fontFamily: 'UnifrakturCook, cursive',
-        fontSize: '5rem',
-        color: 'gold'
-      }}>
-        Ghostcat
-      </h1>
-      <p style={{ color: '#d23ecb', fontSize: '1.5rem' }}>Artes obscuras e autorais.</p>
+     
     </section>
   )
 }

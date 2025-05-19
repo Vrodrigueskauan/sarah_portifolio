@@ -1,85 +1,86 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Heart } from 'lucide-react'
-import Modal from './Modal'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
+import "./Gallery.css"; // Se preferir, incorpore no próprio JSX como style={{ ... }}
 
 const images = [
   {
-    src: '/img1.jpg',
-    name: 'Eclipse Noturno',
-    desc: 'Uma arte inspirada em visões cósmicas e trevas.'
+    id: 1,
+    src: "/images/eclipse.jpg",
+    title: "Eclipse Noturno",
+    description: "Uma composição inspirada nos sonhos e na escuridão.",
   },
   {
-    src: '/img2.jpg',
-    name: 'Vulto Lunar',
-    desc: 'Reflexo sombrio das fases da lua.'
+    id: 2,
+    src: "/images/vulto.jpg",
+    title: "Vulto Lunar",
+    description: "Arte feita com base na luz refletida nas sombras.",
   },
   {
-    src: '/img3.jpg',
-    name: 'Chamado das Sombras',
-    desc: 'Evocação artística do oculto.'
-  }
-]
+    id: 3,
+    src: "/images/sombras.jpg",
+    title: "Chamado das Sombras",
+    description: "O chamado ancestral envolto em mistério.",
+  },
+];
 
-const Gallery = () => {
-  const [modalData, setModalData] = useState(null)
-  const [favorites, setFavorites] = useState([])
+export default function Gallery() {
+  const [favorites, setFavorites] = useState([]);
+  const [selected, setSelected] = useState(null);
 
-  const toggleFavorite = (src) => {
-    setFavorites(prev =>
-      prev.includes(src) ? prev.filter(f => f !== src) : [...prev, src]
-    )
-  }
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
+    );
+  };
 
   return (
-    <section style={{ padding: '2rem' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: '#d23ecb' }}>Galeria</h2>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-        gap: '1rem'
-      }}>
+    <section id="gallery" style={{ padding: "3rem 1rem", textAlign: "center" }}>
+      <h2 style={{ color: "#ff4fcb", marginBottom: "2rem" }}>Galeria</h2>
+
+      <div className="gallery-grid">
         {images.map((img) => (
           <motion.div
-            key={img.src}
+            key={img.id}
+            className="gallery-item"
             whileHover={{ scale: 1.05 }}
-            style={{
-              position: 'relative',
-              cursor: 'pointer',
-              borderRadius: '10px',
-              overflow: 'hidden'
-            }}
+            onClick={() => setSelected(img)}
           >
-            <img
-              src={img.src}
-              alt={img.name}
-              onClick={() => setModalData(img)}
-              style={{ width: '100%', height: 'auto', display: 'block' }}
-            />
-            <motion.div
+            <img src={img.src} alt={img.title} />
+            <div className="gallery-title">{img.title}</div>
+            <motion.button
               whileTap={{ scale: 1.3 }}
               onClick={(e) => {
-                e.stopPropagation()
-                toggleFavorite(img.src)
+                e.stopPropagation();
+                toggleFavorite(img.id);
               }}
-              style={{
-                position: 'absolute',
-                top: 10,
-                right: 10,
-                color: favorites.includes(img.src) ? 'hotpink' : '#fff'
-              }}
+              className="heart-btn"
             >
-              <Heart fill={favorites.includes(img.src) ? 'hotpink' : 'none'} />
-            </motion.div>
+              <Heart
+                color={favorites.includes(img.id) ? "#ff4fcb" : "#ccc"}
+                fill={favorites.includes(img.id) ? "#ff4fcb" : "none"}
+              />
+            </motion.button>
           </motion.div>
         ))}
       </div>
 
-      {modalData && (
-        <Modal data={modalData} onClose={() => setModalData(null)} />
+      {selected && (
+        <div className="modal" onClick={() => setSelected(null)}>
+          <motion.div
+            className="modal-content"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <img src={selected.src} alt={selected.title} />
+            <div className="modal-text">
+              <h3>{selected.title}</h3>
+              <p>{selected.description}</p>
+            </div>
+          </motion.div>
+        </div>
       )}
     </section>
-  )
+  );
 }
-
-export default Gallery

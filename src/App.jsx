@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
-import NavBar from './components/NavBar'
-import Banner from './components/Banner'
-import Gallery from './components/Gallery'
-import VideoIntro from './components/VideoIntro'
+// src/App.jsx
+import React from "react";
+import Nav from "./components/Nav";
+import Banner from "./components/Banner";
+import Gallery from "./components/Gallery";
 
 function App() {
-  const [showSite, setShowSite] = useState(false)
-
   return (
     <>
-      {!showSite && <VideoIntro onFinish={() => setShowSite(true)} />}
-      {showSite && (
-        <>
-          <NavBar />
-          <Banner />
-          <Gallery />
-        </>
-      )}
+      <Nav />
+      <Banner />
+      <Gallery />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

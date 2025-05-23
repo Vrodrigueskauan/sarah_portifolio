@@ -12,10 +12,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14",
     "@tanstack/react-query": "^5.26.2",
-    "framer-motion": "^11.0.19",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.307.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.16.0",
+    "split-type": "^0.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.1.0",

@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 import "./Sobre.css";
 
 const paragraphs = [
@@ -24,6 +27,11 @@ const paragraphs = [
 ];
 
 const AboutSection = () => {
+  // Inicia AOS ao montar
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="about-section">
       {paragraphs.map((item, index) => {
@@ -36,28 +44,32 @@ const AboutSection = () => {
   );
 };
 
-const SectionBlock = ({ title, text, image, reverse }) => {
+const SectionBlock = ({ id, title, text, image, reverse }) => {
   const { ref, inView } = useInView({ triggerOnce: false });
 
+  // Define a animação AOS com base no id
+  const aosAnimation =
+    id === 1 || id === 3 ? "zoom-in-left" : "zoom-in-right";
+
   return (
-    <motion.div
+    <div
       ref={ref}
       className={`section-block ${reverse ? "reverse" : ""}`}
-      initial={{ opacity: 0, y: 60 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="text-area">
         <h2>{title}</h2>
         <p>{text}</p>
       </div>
       <div className="image-area">
-        <div className="image-wrapper">
+        <div
+          className="image-wrapper"
+          data-aos={aosAnimation}
+        >
           <img src={image} alt={title} />
           <span className="led-glow"></span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

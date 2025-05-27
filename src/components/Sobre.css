@@ -39,6 +39,7 @@
 
 .image-area {
   flex: 1;
+  max-width: 420px;
 }
 
 .image-wrapper {
@@ -78,4 +79,32 @@
 
 .image-wrapper:hover .led-glow {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .section-block {
+    flex-direction: column; /* Texto em cima, imagem embaixo */
+    text-align: center;
+  }
+
+  .section-block.reverse {
+    flex-direction: column; /* Mesmo para reverso */
+  }
+
+  .text-area,
+  .image-area {
+    max-width: 100%;
+  }
+
+  .text-area h2 {
+    font-size: 2rem;
+  }
+
+  .text-area p {
+    font-size: 1rem;
+  }
+
+  .image-wrapper {
+    margin-top: 2rem;
+  }
 }

@@ -6,19 +6,19 @@ import "./Gallery.css"; // Se preferir, incorpore no próprio JSX como style={{ 
 const images = [
   {
     id: 1,
-    src: "/images/eclipse.jpg",
+    src: "../public/img/teste1.jpg",
     title: "Eclipse Noturno",
     description: "Uma composição inspirada nos sonhos e na escuridão.",
   },
   {
     id: 2,
-    src: "/images/vulto.jpg",
+    src: "/img/teste1.jpg",
     title: "Vulto Lunar",
     description: "Arte feita com base na luz refletida nas sombras.",
   },
   {
     id: 3,
-    src: "/images/sombras.jpg",
+    src: "/img/teste1.jpg",
     title: "Chamado das Sombras",
     description: "O chamado ancestral envolto em mistério.",
   },

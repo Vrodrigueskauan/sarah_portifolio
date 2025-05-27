@@ -7,19 +7,19 @@ const paragraphs = [
     id: 1,
     title: "A Arte do Mistério",
     text: "No coração do Ghostcat habita a fusão entre o digital e o espiritual. Cada detalhe visual foi concebido para provocar curiosidade e introspecção, guiando o visitante por uma jornada sensorial.",
-    image: "/img/ghost1.png"
+    image: "../public/img/teste1.jpg"
   },
   {
     id: 2,
     title: "Estética em Movimento",
     text: "Nada aqui é estático. A interatividade não é apenas um recurso – é uma linguagem visual que se revela conforme o usuário interage, criando uma dança entre luz e sombra.",
-    image: "/img/ghost2.png"
+    image: "../public/img/teste1.jpg"
   },
   {
     id: 3,
     title: "O Propósito Oculto",
     text: "Ghostcat é uma expressão viva do oculto digital. Uma experiência imersiva onde design, emoção e misticismo se fundem em uma entidade pulsante e mutável.",
-    image: "/img/ghost3.png"
+    image: "../public/img/teste1.jpg"
   }
 ];
 

@@ -2,8 +2,11 @@
 import React from "react";
 import Nav from "./components/NavBar";
 import Banner from "./components/Banner";
-import Gallery from "./components/Gallery";
 import AboutSection from "./components/Sobre";
+import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
+import Agendamento from "./components/Agendamento"; 
+
 
 function App() {
   return (
@@ -12,6 +15,8 @@ function App() {
       <Banner />
       <AboutSection />
       <Gallery />
+      <Agendamento />
+      <Footer />
     </>
   );
 }

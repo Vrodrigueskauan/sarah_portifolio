@@ -1,24 +1,18 @@
-// src/App.jsx
-import React from "react";
-import Nav from "./components/NavBar";
-import Banner from "./components/Banner";
-import AboutSection from "./components/Sobre";
-import Gallery from "./components/Gallery";
-import Footer from "./components/Footer";
-import Agendamento from "./components/Agendamento"; 
-
+import { useState } from 'react'
+import './App.css'
+import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <>
-      <Nav />
-      <Banner />
-      <AboutSection />
-      <Gallery />
-      <Agendamento />
-      <Footer />
-    </>
-  );
+     <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App

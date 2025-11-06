@@ -1,0 +1,6 @@
+.hero {
+    width: 100vw;
+    height: 100vh;
+    background: #2A7B9B;
+    background: linear-gradient(0deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 88%);
+}

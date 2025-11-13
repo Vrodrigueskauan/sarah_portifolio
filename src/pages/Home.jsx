@@ -32,7 +32,7 @@ export default function Home() {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: ".conteudo",
-                    markers: true,
+                    //markers: true,
                     start: "top 280px",
                     end: "bottom 460px",
                     ease: "power2.inOut",
@@ -126,8 +126,8 @@ export default function Home() {
                 <section className="hero">
                     <div className="herotxt">
                         <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
+                            initial={{ opacity: 0, y: 100, filter: "blur(10px)" }}
+                            animate={visible ? { opacity: 1, y: 0, filter: "blur(0px)", } : { opacity: 0, y: -100, filter: "blur(10px)" }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             viewport={{ amount: 0.8 }}
                             onViewportEnter={() => setVisible(true)}
@@ -277,7 +277,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 100}}
                             whileInView={{ opacity: 1, y: 0}}
                             transition={{ duration: 1.3 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0.1 }}
                         >
                             <ImageSlider
                                 images={["/img/art4.png", "/img/art5.png", "/img/art6.png"]}

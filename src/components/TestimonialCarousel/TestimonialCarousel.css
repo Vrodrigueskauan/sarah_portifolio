@@ -1,6 +1,6 @@
-/* ======== SEÇÃO ======== */
+
 .testimonial-section {
-  background: radial-gradient(circle at top, #2b0040, #120018);
+
   padding: 80px 0;
   overflow: hidden;
   text-align: center;
@@ -15,7 +15,6 @@
   text-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
 }
 
-/* ======== CARROSSEL ======== */
 .carousel-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -32,7 +31,7 @@
   transition: transform 0.3s linear;
 }
 
-/* ======== CARD ======== */
+
 .card {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -51,12 +50,12 @@
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.03);
+
   box-shadow: 0 10px 30px rgba(160, 70, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* círculo decorativo */
+
 .circle {
   width: 45px;
   height: 45px;
@@ -68,7 +67,7 @@
   box-shadow: 0 0 15px rgba(159, 71, 255, 0.6);
 }
 
-/* título */
+
 .card h3 {
   margin-top: 80px;
   font-size: 18px;
@@ -76,7 +75,7 @@
   font-weight: 600;
 }
 
-/* texto */
+
 .card p {
   margin-top: 12px;
   font-size: 14px;
@@ -84,7 +83,7 @@
   color: #d7c4f8;
 }
 
-/* ======== RESPONSIVO ======== */
+
 @media (max-width: 1024px) {
   .card {
     width: 280px;

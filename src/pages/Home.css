@@ -311,7 +311,7 @@ nav a:hover::after {
 
 
 .artes-slider:hover {
-  transform: translateY(-8px) scale(1.03);
+  transform: translateY(-8px) scale(1.01);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
@@ -327,6 +327,18 @@ nav a:hover::after {
 
 #sld2.artes-slider {
     margin-top: 20%;
+}
+
+
+.testemunhas{
+    background: #410445;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: 'galter';
+    letter-spacing: 2px;
+    color: #B6A7B5;
+    margin-bottom: 0;
 }
 
 

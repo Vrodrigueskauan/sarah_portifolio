@@ -1,10 +1,10 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import ScrollingImage from '../components/ParallaxImg/ParallaxImg'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageSlider from "../components/ImageSlider/ImageSlider";
+import TestimonialCarousel from "../components/TestimonialCarousel/TestimonialCarousel"
 import './Home.css'
 
 
@@ -39,11 +39,11 @@ export default function Home() {
                     scrub: 2.5,
 
                 },
-                 immediateRender: false,
+                immediateRender: false,
 
-                
+
             },
-       
+
 
         )
 
@@ -255,30 +255,57 @@ export default function Home() {
                     </motion.h1>
 
                     <div className="art-imgs" id="sld1">
-                        <div className="artes-slider">
+                       
+                        <motion.div
+                            className="artes-slider"
+                            initial={{ opacity: 0, x: -100 }}
+                            whileInView={{ opacity: 1, x: 0}}
+                            transition={{ duration: 1.2 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
                             <ImageSlider
                                 images={["/img/art1.png", "/img/art2.png", "/img/art3.png"]}
                                 interval={4000}
                                 height="350px"
                             />
-                        </div>
+                        </motion.div>
 
-                        <div className="artes-slider" id="sld2">
+                        
+                        <motion.div
+                            className="artes-slider"
+                            id="sld2"
+                            initial={{ opacity: 0, y: 100}}
+                            whileInView={{ opacity: 1, y: 0}}
+                            transition={{ duration: 1.3 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
                             <ImageSlider
                                 images={["/img/art4.png", "/img/art5.png", "/img/art6.png"]}
                                 interval={4000}
                                 height="350px"
                             />
-                        </div>
+                        </motion.div>
 
-                        <div className="artes-slider" id="sld3">
+                        
+                        <motion.div
+                            className="artes-slider"
+                            id="sld3"
+                            initial={{ opacity: 0, x: 100}}
+                            whileInView={{ opacity: 1, x: 0}}
+                            transition={{ duration: 1.3}}
+                            viewport={{ once: falses, amount: 0.3 }}
+                        >
                             <ImageSlider
                                 images={["/img/art7.png", "/img/art8.png", "/img/art1.png"]}
                                 interval={4000}
                                 height="350px"
                             />
-                        </div>
+                        </motion.div>
                     </div>
+                </section>
+
+                <section className="testemunhas">
+                    <TestimonialCarousel />
                 </section>
 
             </div>

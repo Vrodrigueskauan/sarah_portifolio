@@ -293,7 +293,7 @@ export default function Home() {
                             initial={{ opacity: 0, x: 100}}
                             whileInView={{ opacity: 1, x: 0}}
                             transition={{ duration: 1.3}}
-                            viewport={{ once: falses, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0.3 }}
                         >
                             <ImageSlider
                                 images={["/img/art7.png", "/img/art8.png", "/img/art1.png"]}

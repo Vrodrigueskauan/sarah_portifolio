@@ -1,6 +1,6 @@
 
 .testimonial-section {
-
+  width: 100%;
   padding: 80px 0;
   overflow: hidden;
   text-align: center;
@@ -17,16 +17,16 @@
 
 .carousel-wrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
 
 .carousel-track {
+  width: 100%;
   display: flex;
   gap: 40px;
-  width: max-content;
   will-change: transform;
   transition: transform 0.3s linear;
 }

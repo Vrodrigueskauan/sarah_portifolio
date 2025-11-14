@@ -32,9 +32,9 @@ export default function Home() {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: ".conteudo",
-                    //markers: true,
-                    start: "top 280px",
-                    end: "bottom 460px",
+                    // markers: true,
+                    start: "top 320px",
+                    end: "bottom 590px",
                     ease: "power2.inOut",
                     scrub: 2.5,
 
@@ -48,7 +48,7 @@ export default function Home() {
         )
 
         gsap.to(".anm-img", {
-            x: -340,
+            x: -440,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: ".artes",
@@ -71,16 +71,16 @@ export default function Home() {
 
         gsap.to(".anm-img", {
             y: 480,
-            scale: 0.5,
+            scale: 0.8,
             scaleX: -1,
             transformOrigin: "center",
             duration: 2,
             scrollTrigger: {
                 trigger: ".artes",
                 start: "top 400px",
-                end: "bottom 800px",
+                end: "bottom 890px",
                 scrub: 2.5,
-                //markers: true,
+                // markers: true,
             },
         });
 
@@ -112,10 +112,10 @@ export default function Home() {
 
             >
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Agendar</a></li>
+                    <li><a href="">Projetos</a></li>
+                    <li><a href="">Login</a></li>
                 </ul>
             </motion.nav>
             <div className="home-container">

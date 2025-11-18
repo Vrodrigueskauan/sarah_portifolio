@@ -33,8 +33,8 @@ export default function Home() {
                 scrollTrigger: {
                     trigger: ".conteudo",
                     //markers: true,
-                    start: "top 280px",
-                    end: "bottom 460px",
+                    start: "top 60%",
+                    end: "bottom 80%",
                     ease: "power2.inOut",
                     scrub: 2.5,
 
@@ -48,7 +48,7 @@ export default function Home() {
         )
 
         gsap.to(".anm-img", {
-            x: -340,
+            x: "-210%",
             ease: "power2.out",
             scrollTrigger: {
                 trigger: ".artes",
@@ -70,17 +70,17 @@ export default function Home() {
 
 
         gsap.to(".anm-img", {
-            y: 480,
-            scale: 0.5,
+            y: "130%",
+            scale: 0.8,
             scaleX: -1,
             transformOrigin: "center",
             duration: 2,
             scrollTrigger: {
                 trigger: ".artes",
                 start: "top 400px",
-                end: "bottom 800px",
+                end: "bottom 890px",
                 scrub: 2.5,
-                //markers: true,
+                // markers: true,
             },
         });
 
@@ -112,10 +112,10 @@ export default function Home() {
 
             >
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Agendar</a></li>
+                    <li><a href="">Projetos</a></li>
+                    <li><a href="">Login</a></li>
                 </ul>
             </motion.nav>
             <div className="home-container">
@@ -163,8 +163,43 @@ export default function Home() {
                     </motion.div>
 
                 </section>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="divider">
+                    <path fill="#000" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,245.3C384,267,480,277,576,245.3C672,213,768,139,864,128C960,117,1056,171,1152,192C1248,213,1344,203,1392,197.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+                </svg>
+
+                <motion.section>
+                   <motion.div
+                       initial={{ opacity: 0, y: 100 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 1, ease: "easeInOut" }}
+                       viewport={{ once: false, amount: 0.2 }}
+                       className="card-services"
+
+                   >
+                    <motion.img
+                    src="/img/tatuando.png"
+                    alt=""
+                    className="about-img"
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    viewport={{ once: false, amount: 0.3 }}
+        
+                    >
+                    </motion.img>
+                    <motion.h1></motion.h1>
+
+                   </motion.div>
+
+
+                </motion.section>
+
 
                 <motion.section
+                   initial={{ opacity: 0, y: 100 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 1, ease: "easeInOut" }}
+                   viewport={{ once: false, amount: 0.2 }}
 
 
                     className="about">
@@ -243,6 +278,9 @@ export default function Home() {
 
 
                 </section>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#690895" fill-opacity="1" d="M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,245.3C672,245,768,203,864,181.3C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg> */}
 
                 <section className="artes">
                     <motion.h1
@@ -255,11 +293,11 @@ export default function Home() {
                     </motion.h1>
 
                     <div className="art-imgs" id="sld1">
-                       
+
                         <motion.div
                             className="artes-slider"
                             initial={{ opacity: 0, x: -100 }}
-                            whileInView={{ opacity: 1, x: 0}}
+                            whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1.2 }}
                             viewport={{ once: false, amount: 0.3 }}
                         >
@@ -270,12 +308,12 @@ export default function Home() {
                             />
                         </motion.div>
 
-                        
+
                         <motion.div
                             className="artes-slider"
                             id="sld2"
-                            initial={{ opacity: 0, y: 100}}
-                            whileInView={{ opacity: 1, y: 0}}
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.3 }}
                             viewport={{ once: false, amount: 0.1 }}
                         >
@@ -286,13 +324,13 @@ export default function Home() {
                             />
                         </motion.div>
 
-                        
+
                         <motion.div
                             className="artes-slider"
                             id="sld3"
-                            initial={{ opacity: 0, x: 100}}
-                            whileInView={{ opacity: 1, x: 0}}
-                            transition={{ duration: 1.3}}
+                            initial={{ opacity: 0, x: 100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1.3 }}
                             viewport={{ once: false, amount: 0.3 }}
                         >
                             <ImageSlider

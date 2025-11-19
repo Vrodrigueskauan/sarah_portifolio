@@ -166,30 +166,64 @@ export default function Home() {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="divider">
                     <path fill="#000" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,245.3C384,267,480,277,576,245.3C672,213,768,139,864,128C960,117,1056,171,1152,192C1248,213,1344,203,1392,197.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
                 </svg>
+                
+                <motion.section className="services-section">
+                    <motion.h1
+                     initial={{ opacity: 0, y: -100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        className="title"
+                    
+                    
+                    >
+                        Serviços
+                    </motion.h1>
+                    <div className="services">
+                    
 
-                <motion.section>
+                    
+                   
                    <motion.div
                        initial={{ opacity: 0, y: 100 }}
                        whileInView={{ opacity: 1, y: 0 }}
                        transition={{ duration: 1, ease: "easeInOut" }}
-                       viewport={{ once: false, amount: 0.2 }}
+                       viewport={{ once: false, amount: 0.3 }}
                        className="card-services"
 
                    >
                     <motion.img
-                    src="/img/tatuando.png"
+                    src="/img/services1.png"
                     alt=""
-                    className="about-img"
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    className="services-img"
         
                     >
                     </motion.img>
-                    <motion.h1></motion.h1>
+                    <motion.h1>Tatuagem</motion.h1>
+                    <p>A Ghostcat é um estúdio de tatuagem focado em criar arte única com segurança, técnica e personalidade. Trabalhamos com atendimento personalizado, materiais de alta qualidade e total cuidado em cada detalhe para transformar sua ideia em uma tatuagem exclusiva.</p>
 
                    </motion.div>
+                    <motion.div
+                       initial={{ opacity: 0, y: 100 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 1.5, ease: "easeInOut" }}
+                       viewport={{ once: false, amount: 0.3 }}
+                       className="card-services"
+
+                   >
+                    <motion.img
+                    src="/img/service2.png"
+                    alt=""
+                    className="services-img"
+        
+                    >
+                    </motion.img>
+                    <h1 className="title-card">Nail des.</h1>
+                    <p>A Ghostcat também oferece nail design com foco em criatividade, estética e cuidado. Trabalhamos com técnicas modernas, materiais de qualidade e atendimento personalizado para entregar unhas únicas, duráveis e feitas com total atenção aos detalhes.</p>
+
+                   </motion.div>
+                   <div className="services"></div>
+                   </div>
 
 
                 </motion.section>
@@ -242,10 +276,13 @@ export default function Home() {
 
 
                     </div>
+                    
+                    
 
 
 
                 </motion.section>
+                </div>
 
                 <section className="valorizamos">
                     <motion.h1
@@ -346,7 +383,7 @@ export default function Home() {
                     <TestimonialCarousel />
                 </section>
 
-            </div>
+            
 
         </>
 

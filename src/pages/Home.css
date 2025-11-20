@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: #2B032D;
 
     
 }
@@ -94,6 +95,18 @@ nav a:hover::after {
 .herotxt {
     margin-bottom: 10%;
 
+}
+
+
+
+.wave-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    top: 67%;
+    height: auto;
+    z-index: 1;
 }
 
 .herotxt h1 {
@@ -298,8 +311,10 @@ nav a:hover::after {
 .about-img {
     width: 40%;
     border-radius:60%;
-    box-shadow: -2px 2px 5px #2c012f;
+    transition: all 0.5s ease;
 }
+
+
 
 .about-content p {
     margin-top: 10%;

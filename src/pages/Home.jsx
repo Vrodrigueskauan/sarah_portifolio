@@ -52,8 +52,8 @@ export default function Home() {
 
 
         gsap.to(".anm-img", {
-            y: "150%",
-            scale: 0.8,
+            y: "170%",
+            scale: 0.9,
             scaleX: -1,
             transformOrigin: "center",
             duration: 2,
@@ -69,6 +69,35 @@ export default function Home() {
         return () => {
             gsap.killTweensOf(".anm-img")
         };
+    }, [])
+
+
+
+     useLayoutEffect(() => {
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.set(".wave-banner", {  transformOrigin: "center" });
+
+         gsap.to(".wave-banner", {
+            marginTop:'-780px',
+            transformOrigin: "center",
+            duration: 2,
+            scrollTrigger: {
+                trigger: ".herotxt",
+                start: "top 40px",
+                end: "bottom 80px",
+                scrub: 2.5,
+                //markers: true,
+            },
+        });
+
+        return () => {
+            gsap.killTweensOf(".wave-banner")
+        };
+
+
+
+
     }, [])
 
     
@@ -132,29 +161,19 @@ export default function Home() {
                         </motion.div>
                     </div>
 
-                    <Parallax pages={2} >
-                        <ParallaxLayer offset={0} speed={0.2}
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                color: 'white',
-                                top: '30%',
-                                height: '100%',
-                                backgroundSize: 'cover',
-                                width: '100%',
-
-                            }}>
-                            <motion.img initial={{ opacity: 0, y: 20 }}
+                    
+                            <motion.img initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 3, ease: "easeInOut" }} src="/img/wave-banner.svg.svg" alt="" />
-                        </ParallaxLayer>
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                className="wave-banner"
+                                 src="/img/wave-banner.svg.svg" alt="" />
+                        
 
 
 
 
 
-                        </Parallax>
+                        
 
                         
 
@@ -162,8 +181,11 @@ export default function Home() {
                    
 
                 </section>
+                
 
 
+
+                    
                  <motion.section className="services-section">
                     <motion.h1
                         className="title"
@@ -223,10 +245,7 @@ export default function Home() {
 
 
                 <motion.section
-                    initial={{ opacity: 0, y: 100 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    viewport={{ once: false, amount: 0.2 }}
+                  
 
 
                     className="about">
@@ -369,15 +388,19 @@ export default function Home() {
                     </motion.div>
                 </div>
             </section> 
+
+
+            <section className="testemunhas">
+
+
+            </section>
             
             </div>
              
 
      
 
-            {/* <section className="testemunhas">
-                <TestimonialCarousel />
-            </section> */}
+            
 
 
 

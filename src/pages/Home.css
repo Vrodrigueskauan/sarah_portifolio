@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #410445;
+
     
 }
 
@@ -296,8 +296,8 @@ nav a:hover::after {
 
 
 .about-img {
-    width: 465px;
-    border-radius: 10px;
+    width: 40%;
+    border-radius:60%;
     box-shadow: -2px 2px 5px #2c012f;
 }
 
@@ -325,6 +325,7 @@ nav a:hover::after {
     letter-spacing: 2px;
     color: #B6A7B5;
     transition: all 0.5s ease;
+    padding: 5px;
 }
 
 .valorizamos:hover{
@@ -334,7 +335,7 @@ nav a:hover::after {
 .conteudo {
     display: flex;
     gap: 15%;
-    margin: 5%;
+
     text-align: left;
     justify-content: center;
     align-items: center;
@@ -351,8 +352,9 @@ nav a:hover::after {
 
 
 .conteudo .anm-img {
-    max-width: 265px;
+    width: 20%;
     margin-right: 10%;
+    margin-bottom: 5%;
     margin-top: 0;
     opacity: 0;
 
@@ -360,7 +362,7 @@ nav a:hover::after {
 
 
 .conteudo p {
-    margin-top: 10%;
+    margin-left: 20px;
     font-size: 1.5rem;
     margin-top: 0;
 }
@@ -378,7 +380,6 @@ nav a:hover::after {
     color: #B6A7B5;
     margin-bottom: 0;
     padding: 10px;
-    margin-left: 5%;
     border-radius: 10px;
     transition: all 0.5s ease;
     
@@ -403,11 +404,11 @@ nav a:hover::after {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 60px;
+    gap: 10px;
     width: 70%;
     height: 40%;
+    margin-right: 15%;
     flex-wrap: wrap;
-    margin-right: 25%;
 
 
 }
@@ -468,42 +469,3 @@ nav a:hover::after {
 
 
 
-@media (max-width: 600px) {
-
-
-
-
-    .herotxt h1 {
-        text-align: center;
-        font-size: 5rem;
-        letter-spacing: 2px;
-        font-weight: 300;
-        text-shadow: -1px 0px 5px #000000;
-        margin-bottom: 0;
-    }
-
-    .herotxt p {
-        text-align: center;
-        font-size: 1rem;
-        letter-spacing: 2px;
-        font-weight: 300;
-        text-shadow: -1px 0px 5px #000000;
-        margin-top: 0;
-    }
-
-
-    .artes h1 {
-        font-size: 2rem;
-    }
-
-    .artes-slider {
-        width: 90%;
-        height: 300px;
-    }
-
-    .art-imgs {
-        gap: 20px;
-    }
-
-
-}

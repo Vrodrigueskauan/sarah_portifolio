@@ -1,9 +1,10 @@
-<svg width="452" height="98" viewBox="0 0 452 98" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="452" height="98" fill="url(#paint0_linear_1_2)"/>
+<svg width="1440" height="657" viewBox="0 0 1440 657" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_9)">
+<rect width="1440" height="657" fill="black"/>
+</g>
 <defs>
-<linearGradient id="paint0_linear_1_2" x1="226" y1="-19" x2="226" y2="105" gradientUnits="userSpaceOnUse">
-<stop/>
-<stop offset="1" stop-color="#410445"/>
-</linearGradient>
+<clipPath id="clip0_1_9">
+<rect width="1440" height="657" fill="white"/>
+</clipPath>
 </defs>
 </svg>

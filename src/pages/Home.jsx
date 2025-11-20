@@ -71,6 +71,7 @@ export default function Home() {
         };
     }, [])
 
+    
 
 
 
@@ -127,57 +128,44 @@ export default function Home() {
                             >
                                 <p >A dor é momentânea. O estilo, eterno.</p>
                             </motion.div>
+
                         </motion.div>
                     </div>
-                    <motion.div
-                        className="saiba-mais"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 0 }}
-                        viewport={{ amount: 0.8 }}
-                        transition={{ delay: 2.5, duration: 1, ease: "easeInOut" }}
-                    >
-                        <p>Saiba mais</p>
-                        <motion.div
-                            className="setas"
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                        >
-                            <ChevronDown size={28} />
-                        </motion.div>
-                    </motion.div>
-                    <Parallax pages={2}>
-                        <ParallaxLayer offset={0}
-                            speed={2.5}
+
+                    <Parallax pages={2} >
+                        <ParallaxLayer offset={0} speed={0.2}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 color: 'white',
-                                top: '10%'
+                                top: '30%',
+                                height: '100%',
+                                backgroundSize: 'cover',
+                                width: '100%',
+
                             }}>
-                            <img src="/img/wave-banner.svg.svg" alt="" />
+                            <motion.img initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 3, ease: "easeInOut" }} src="/img/wave-banner.svg.svg" alt="" />
                         </ParallaxLayer>
 
-                        <ParallaxLayer offset={1} style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                color: 'white',
-                                width: '100vw'}}>
-                            <img src="/img/divider-banner.svg" alt="" />
-                        </ParallaxLayer>
 
-                    </Parallax>
+
+
+
+                        </Parallax>
+
+                        
+
+
+                   
 
                 </section>
 
 
-                <motion.section className="services-section">
+                 <motion.section className="services-section">
                     <motion.h1
-                        initial={{ opacity: 0, y: -100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                        viewport={{ once: true, amount: 0.9 }}
                         className="title"
 
 
@@ -231,7 +219,7 @@ export default function Home() {
                     </div>
 
 
-                </motion.section>
+                </motion.section> 
 
 
                 <motion.section
@@ -286,10 +274,8 @@ export default function Home() {
 
 
 
-                </motion.section>
-            </div>
-
-            <section className="valorizamos">
+                </motion.section> 
+                        <section className="valorizamos">
                 <motion.h1
                     initial={{ opacity: 0, y: -100 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +300,7 @@ export default function Home() {
                     <img className="anm-img" src="/img/mao.png" alt="" />
 
 
-                </div>
+                </div> 
 
 
 
@@ -324,7 +310,7 @@ export default function Home() {
                     <path fill="#690895" fill-opacity="1" d="M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,245.3C672,245,768,203,864,181.3C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg> */}
 
-            <section className="artes">
+             <section className="artes">
                 <motion.h1
                     initial={{ opacity: 0, y: -100 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -382,11 +368,16 @@ export default function Home() {
                         />
                     </motion.div>
                 </div>
-            </section>
+            </section> 
+            
+            </div>
+             
 
-            <section className="testemunhas">
+     
+
+            {/* <section className="testemunhas">
                 <TestimonialCarousel />
-            </section>
+            </section> */}
 
 
 

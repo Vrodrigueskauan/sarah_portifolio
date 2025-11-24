@@ -271,18 +271,17 @@ nav a:hover::after {
 
 
 .about {
-         border: 4px solid #7c0185;
+     border: 4px solid #7c0185;
     border-radius: 10px;
     background-color: #15001763;
     width: 80%;
     max-width: 1235px;
-    height: 60%;
+    height: 80%;
     margin: 2%;
     margin-top: 5px;
     text-align: center;
     font-family: 'galter';
     letter-spacing: 2px;
-
     color: #B6A7B5;
     padding: 5px;
     border-radius: 10px;
@@ -293,6 +292,7 @@ nav a:hover::after {
 
 .about:hover{
     border-color: #c400d8;
+    box-shadow: 0 0 25px #7c0185bb, inset 0 0 20px #7c018566;
 }
 
 .about-content {
@@ -310,7 +310,9 @@ nav a:hover::after {
 
 .about-img {
     width: 40%;
-    border-radius:60%;
+    height: 40%;
+    object-fit: cover;
+    border-radius:50%;
     transition: all 0.5s ease;
 }
 
@@ -345,6 +347,8 @@ nav a:hover::after {
 
 .valorizamos:hover{
     border-color: #c400d8;
+    border-color: #c400d8;
+    box-shadow: 0 0 25px #7c0185bb, inset 0 0 20px #7c018566;
 }
 
 .conteudo {
@@ -384,10 +388,13 @@ nav a:hover::after {
 
 
 .artes {
-    border: 4px solid #7c0185;
+    /* border: 4px solid #7c0185; */
     border-radius: 10px;
-    background-color: #15001763;
-    width: 90%;
+    background-image: url('/public/img/artes-background.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 100%;
     height: 100%;
     text-align: center;
     font-family: 'galter';
@@ -400,11 +407,12 @@ nav a:hover::after {
     
 }
 
-.artes:hover{
-
+/* .artes:hover{
+    border-color: #c400d8;
+    box-shadow: 0 0 25px #7c0185bb, inset 0 0 20px #7c018566;
     border-color: #c400d8;
 
-}
+ */
 
 .artes h1 {
     font-size: 3.5rem;

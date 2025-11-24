@@ -61,7 +61,7 @@ export default function Home() {
                 trigger: ".artes",
                 start: "top 400px",
                 end: "bottom 890px",
-                scrub: 2.5,
+                scrub: 1.5,
                 // markers: true,
             },
         });
@@ -79,7 +79,7 @@ export default function Home() {
         gsap.set(".wave-banner", {  transformOrigin: "center" });
 
          gsap.to(".wave-banner", {
-            marginTop:'-780px',
+            y:'-720px',
             transformOrigin: "center",
             duration: 2,
             scrollTrigger: {

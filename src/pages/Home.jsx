@@ -1,6 +1,6 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Container } from "lucide-react";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageSlider from "../components/ImageSlider/ImageSlider";
@@ -13,6 +13,7 @@ import './Home.css'
 export default function Home() {
 
     const [visible, setVisible] = useState(false);
+    const aboutRef = useRef(null);
 
 
     useLayoutEffect(() => {
@@ -70,56 +71,42 @@ export default function Home() {
         return () => {
             gsap.killTweensOf(".anm-img")
         };
+
     }, [])
 
 
 
-    //  useLayoutEffect(() => {
-
-    //     gsap.registerPlugin(ScrollTrigger);
-    //     gsap.set(".wave-banner", {  transformOrigin: "center" });
-
-    //      gsap.to(".wave-banner", {
-    //         y:'-720px',
-    //         transformOrigin: "center",
-    //         duration: 2,
-    //         scrollTrigger: {
-    //             trigger: ".herotxt",
-    //             start: "top 40px",
-    //             end: "bottom 80px",
-    //             scrub: 2.5,
-    //             //markers: true,
-    //         },
-    //     });
-
-    //     return () => {
-    //         gsap.killTweensOf(".wave-banner")
-    //     };
 
 
-
-
-    // }, [])
+    useEffect(() => {
+        const section = aboutRef.current;
+    
+        if (!section) return;
+    
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.add("show");
+                    } else {
+                        section.classList.remove("show");
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+            }
+        );
+    
+        observer.observe(section);
+    
+        return () => observer.disconnect();
+    }, []);
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <>
+        <container className="home-container">
             <motion.nav
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -133,7 +120,7 @@ export default function Home() {
                     <li><a href="">Login</a></li>
                 </ul>
             </motion.nav>
-            <div className="home-container">
+            
 
 
 
@@ -162,30 +149,30 @@ export default function Home() {
                         </motion.div>
                     </div>
 
-                  
-
-                    
-                          
-                        
 
 
 
 
 
-                        
-
-                        
 
 
-                   
+
+
+
+
+
+
+
+
+
 
                 </section>
-                
 
 
 
-                    
-                 <motion.section className="services-section">
+
+
+                <motion.section className="services-section">
                     <motion.h1
                         className="title"
 
@@ -240,19 +227,19 @@ export default function Home() {
                     </div>
 
 
-                </motion.section> 
+                </motion.section>
 
 
                 <motion.section
-                  
 
 
-                    className="about">
+
+                    className="about" ref={aboutRef}>
                     <motion.h1
                         initial={{ opacity: 0, y: -100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 2, ease: "easeInOut" }}
-                        viewport={{ once: false, amount: 0.9 }}
+                        viewport={{ once: true, amount: 0.9 }}
                     >
 
 
@@ -292,114 +279,117 @@ export default function Home() {
 
 
 
-                </motion.section> 
-                        <section className="valorizamos">
-                <motion.h1
-                    initial={{ opacity: 0, y: -100 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    viewport={{ once: false, amount: 0.8 }}
-                >
-                    Valorizamos nossos clientes
-                </motion.h1>
-
-                <div className="conteudo">
-                    <motion.p
-
-                        initial={{ opacity: 0, x: -100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                </motion.section>
+                <section className="valorizamos">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 2, ease: "easeInOut" }}
-                        viewport={{ once: false, amount: 0.5 }}
-
+                        viewport={{ once: true, amount: 0.8 }}
                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </motion.p>
+                        Valorizamos nossos clientes
+                    </motion.h1>
 
-                    <img className="anm-img" src="/img/mao.png" alt="" />
+                    <div className="conteudo">
+                        <motion.p
+
+                            initial={{ opacity: 0, x: -100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 2, ease: "easeInOut" }}
+                            viewport={{ once: false, amount: 0.5 }}
+
+                        >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </motion.p>
+
+                        <img className="anm-img" src="/img/mao.png" alt="" />
 
 
-                </div> 
+                    </div>
 
 
 
 
-            </section>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                </section>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path fill="#690895" fill-opacity="1" d="M0,256L48,240C96,224,192,192,288,197.3C384,203,480,245,576,245.3C672,245,768,203,864,181.3C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg> */}
 
-             <section className="artes">
-                <motion.h1
-                    initial={{ opacity: 0, y: -100 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    viewport={{ once: false, amount: 0.8 }}
-                >
-                    Alguns projetos
-                </motion.h1>
-
-                <div className="art-imgs" id="sld1">
-
-                    <motion.div
-                        className="artes-slider"
-                        initial={{ opacity: 0, x: -100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                    >
-                        <ImageSlider
-                            images={["/img/art1.png", "/img/art2.png", "/img/art3.png"]}
-                            interval={4000}
-                            height="350px"
-                        />
-                    </motion.div>
+                <section className="artes">
 
 
-                    <motion.div
-                        className="artes-slider"
-                        id="sld2"
-                        initial={{ opacity: 0, y: 100 }}
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: -100 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.3 }}
-                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        viewport={{ once: true, amount: 0.8 }}
                     >
-                        <ImageSlider
-                            images={["/img/art4.png", "/img/art5.png", "/img/art6.png"]}
-                            interval={4000}
-                            height="350px"
-                        />
-                    </motion.div>
+                        Alguns projetos
+                    </motion.h1>
+
+                    <div className="art-imgs" id="sld1">
+
+                        <motion.div
+                            className="artes-slider"
+                            initial={{ opacity: 0, x: -100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1.2 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
+                            <ImageSlider
+                                images={["/img/art1.png", "/img/art2.png", "/img/art3.png"]}
+                                interval={4000}
+                                height="350px"
+                            />
+                        </motion.div>
 
 
-                    <motion.div
-                        className="artes-slider"
-                        id="sld3"
-                        initial={{ opacity: 0, x: 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.3 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                    >
-                        <ImageSlider
-                            images={["/img/art7.png", "/img/art8.png", "/img/art1.png"]}
-                            interval={4000}
-                            height="350px"
-                        />
-                    </motion.div>
-                </div>
-            </section> 
+                        <motion.div
+                            className="artes-slider"
+                            id="sld2"
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1.3 }}
+                            viewport={{ once: false, amount: 0.1 }}
+                        >
+                            <ImageSlider
+                                images={["/img/art4.png", "/img/art5.png", "/img/art6.png"]}
+                                interval={4000}
+                                height="350px"
+                            />
+                        </motion.div>
 
 
-            <section className="testemunhas">
+                        <motion.div
+                            className="artes-slider"
+                            id="sld3"
+                            initial={{ opacity: 0, x: 100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1.3 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
+                            <ImageSlider
+                                images={["/img/art7.png", "/img/art8.png", "/img/art1.png"]}
+                                interval={4000}
+                                height="350px"
+                            />
+                        </motion.div>
+                    </div>
+                </section>
 
 
-            </section>
-            
-            </div>
-             
+                <section className="testemunhas">
 
-     
 
-            
+                </section>
+
+            </container>
+
+
+
+
+
 
 
 

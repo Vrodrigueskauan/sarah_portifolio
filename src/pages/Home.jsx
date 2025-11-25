@@ -52,7 +52,7 @@ export default function Home() {
 
 
         gsap.to(".anm-img", {
-            y: "170%",
+            y: "145%",
             scale: 0.9,
             scaleX: -1,
             transformOrigin: "center",
@@ -61,8 +61,9 @@ export default function Home() {
                 trigger: ".artes",
                 start: "top 400px",
                 end: "bottom 890px",
-                scrub: 1.5,
-                // markers: true,
+                ease: "power2.inOut",
+                scrub: 2.5,
+                //markers: true,
             },
         });
 
@@ -73,32 +74,32 @@ export default function Home() {
 
 
 
-     useLayoutEffect(() => {
+    //  useLayoutEffect(() => {
 
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.set(".wave-banner", {  transformOrigin: "center" });
+    //     gsap.registerPlugin(ScrollTrigger);
+    //     gsap.set(".wave-banner", {  transformOrigin: "center" });
 
-         gsap.to(".wave-banner", {
-            y:'-720px',
-            transformOrigin: "center",
-            duration: 2,
-            scrollTrigger: {
-                trigger: ".herotxt",
-                start: "top 40px",
-                end: "bottom 80px",
-                scrub: 2.5,
-                //markers: true,
-            },
-        });
+    //      gsap.to(".wave-banner", {
+    //         y:'-720px',
+    //         transformOrigin: "center",
+    //         duration: 2,
+    //         scrollTrigger: {
+    //             trigger: ".herotxt",
+    //             start: "top 40px",
+    //             end: "bottom 80px",
+    //             scrub: 2.5,
+    //             //markers: true,
+    //         },
+    //     });
 
-        return () => {
-            gsap.killTweensOf(".wave-banner")
-        };
-
-
+    //     return () => {
+    //         gsap.killTweensOf(".wave-banner")
+    //     };
 
 
-    }, [])
+
+
+    // }, [])
 
     
 
@@ -161,12 +162,10 @@ export default function Home() {
                         </motion.div>
                     </div>
 
+                  
+
                     
-                            <motion.img initial={{ opacity: 0, y: 50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1.5, ease: "easeInOut" }}
-                                className="wave-banner"
-                                 src="/img/wave-banner.svg.svg" alt="" />
+                          
                         
 
 
@@ -267,7 +266,7 @@ export default function Home() {
                             className="about-img"
                             initial={{ opacity: 0, x: -100 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            transition={{ duration: 1.5, ease: "easeIn" }}
                             viewport={{ once: false, amount: 0.3 }}
                         >
 

@@ -1,0 +1,56 @@
+/* background.css */
+
+/* PAI da seção: deve envolver conteúdo + svg */
+.testemunhas-section {
+  position: relative;    /* <-- essencial */
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+/* wrapper absoluto do SVG: retirado do fluxo */
+.testemunhas-bg {
+  position: absolute;
+  top: 10%;                
+  right:5%;
+  width: 100%;           
+  height: 75vh;         
+  min-height: 200px;    
+  max-height: 700px;
+  z-index: 0;          
+  pointer-events: none;  
+  display: block;
+}
+
+/* SVG ocupa o wrapper todo */
+.testemunhas-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-left: 0;     /* ✅ remove qualquer recuo */
+  margin-right: auto;
+}
+
+/* conteúdo que fica por cima das ondas */
+.conteudo-testemunhas {
+  position: relative;
+  z-index: 2;            /* acima do SVG */
+  padding: 48px 16px;    /* exemplo de espaço interno */
+  box-sizing: border-box;
+}
+
+/* DEBUG helpers — remova depois
+   ativa uma cor semitransparente para checar o espaço do SVG
+*/
+.testemunhas-bg.debug {
+  background: rgba(255,0,0,0.08);
+  outline: 1px dashed rgba(255,0,0,0.18);
+}
+
+/* responsivo: reduz a altura no mobile */
+@media (max-width: 768px) {
+  .testemunhas-bg {
+    height: 28vh;
+    min-height: 140px;
+  }
+}

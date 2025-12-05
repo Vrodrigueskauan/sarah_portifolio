@@ -8,15 +8,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     max-width: 100%; 
-    padding: 20px;     
     box-sizing: border-box;
-
     background-color: #2B032D;
     overflow-x: hidden;
     font-size: clamp(0.9rem, 1.8vw, 1rem);
+
 
 
 }
@@ -87,24 +85,57 @@ nav a:hover::after {
 
 
 .hero {
-    position: relative;
-    font-family: 'galter';
-    width: 100vw;
-    height: 100vh;
-    background: #410445;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #B6A7B5;
-    margin: 0%;
+  min-height: 95vh;
+  width: 100%;
+  background: 
+    linear-gradient(rgba(32, 0, 40, 0.85), rgba(32, 0, 40, 0.85)),
+    url("/img/banner.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* #FFD700 amarelo ouro */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, #2b0135 75%);
+  overflow: hidden;
 }
 
 .herotxt {
-    margin-bottom: 10%;
-
+  text-align: center;
+  z-index: 2;
 }
+
+.hero-content h1 {
+  font-size: 6rem;
+  letter-spacing: 6px;
+  color: #e6d6ff;
+  text-shadow:
+    0 0 20px rgba(180, 0, 255, 0.4),
+    0 0 40px rgba(90, 0, 120, 0.4);
+}
+
+.hero-content p {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #cdb3df;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+
 
 
 
@@ -122,8 +153,9 @@ nav a:hover::after {
     font-size: 10rem;
     letter-spacing: 2px;
     font-weight: 300;
-    text-shadow: -1px 0px 5px #000000;
+    
     margin-bottom: 0;
+    text-shadow: 0 0 15px rgba(180, 0, 255, 0.4), 0 0 30px rgba(80, 0, 120, 0.4);
 }
 
 .herotxt p {
@@ -208,11 +240,10 @@ nav a:hover::after {
     font-size: 3rem;
     letter-spacing: 2px;
     font-weight: 300;
+    margin-bottom: 0;
 
 
 }
-
-
 
 
 
@@ -451,6 +482,8 @@ nav a:hover::after {
 
 }
 
+/* Seu SVG ou os elementos internos dele */
+
 .artes-slider {
     background: linear-gradient(145deg, #57005f, #2c012f);
     border-radius: 20px;
@@ -491,16 +524,107 @@ nav a:hover::after {
     display: block;
 }
 
+.testemunhas-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.conteudo-testemunhas {
+  position: relative;
+  z-index: 2;
+}
+
 
 
 
 .testemunhas {
-    background: #410445;
+    position: relative;
     width: 100%;
     height: 100%;
+    margin: 2%;
+    margin-top: 2%;
     text-align: center;
     font-family: 'galter';
     letter-spacing: 2px;
     color: #B6A7B5;
-    margin-bottom: 0;
+    padding: 5px;
 }
+
+.animated-background{
+    position: absolute;
+    z-index: -1;
+    right: 20%;
+
+}
+
+
+.conteudo-testemunhas{
+
+        display: flex;
+
+
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card{
+    background-color: #15001763;
+    border: 4px solid #7c0185;
+    border-radius: 10px;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    margin-top: 0;
+    margin-right: 3%;
+
+}
+
+
+.card:hover {
+    border-color: #c400d8;
+    border-color: #c400d8;
+    box-shadow: 0 0 25px #7c0185bb, inset 0 0 20px #7c018566;
+}
+
+
+.conteudo-img{
+    margin-top: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+
+@keyframes float {
+	0% {
+
+		transform: translatey(0px);
+	}
+	50% {
+
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+
+.svg-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+
+

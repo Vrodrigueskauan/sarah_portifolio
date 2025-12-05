@@ -6,6 +6,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageSlider from "../components/ImageSlider/ImageSlider";
 import TestimonialCarousel from "../components/TestimonialCarousel/TestimonialCarousel"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { useInView } from 'react-intersection-observer';
+import TestemunhasBackground from '../components/background/background.jsx';
+import RotatingCard from "../components/RotatingCard/RotatingCard.jsx";
 import './Home.css'
 
 
@@ -14,6 +17,7 @@ export default function Home() {
 
     const [visible, setVisible] = useState(false);
     const aboutRef = useRef(null);
+    const bgRef = useRef(null);
 
 
     useLayoutEffect(() => {
@@ -80,9 +84,9 @@ export default function Home() {
 
     useEffect(() => {
         const section = aboutRef.current;
-    
+
         if (!section) return;
-    
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -97,76 +101,145 @@ export default function Home() {
                 threshold: 0.5,
             }
         );
-    
+
         observer.observe(section);
-    
+
         return () => observer.disconnect();
     }, []);
 
-    
+    useEffect(() => {
+        document.querySelectorAll(".star").forEach(star => {
+            star.style.setProperty("--x", Math.random());
+            star.style.setProperty("--d", Math.random() * 4 + "s");
+            star.style.setProperty("--delay", Math.random() * 5 + "s");
+        });
+    }, []);
+
+
+    const svgRef = useRef(null);
+    const pathRef = useRef(null);
+
+    useLayoutEffect(() => {
+        const path = pathRef.current;
+
+        const length = path.getTotalLength();
+
+        // Estado inicial (linha invisível)
+        gsap.set(path, {
+            strokeDasharray: length,
+            strokeDashoffset: length,
+        });
+
+        // Animação ligada ao scroll
+        gsap.to(path, {
+            strokeDashoffset: 0,
+            scrollTrigger: {
+                trigger: svgRef.current,
+                start: "top 80%",   // começa a desenhar
+                end: "top 20%",     // termina
+                scrub: true,        // sincroniza com o scroll (perfeito)
+            },
+            ease: "none",
+        });
+
+    }, []);
+
+
+
+
+
+
+
+
+
     return (
         <>
-        <container className="home-container">
-            <motion.nav
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2 }}
+            <container className="home-container">
+                <motion.nav
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 2 }}
 
-            >
-                <ul>
-                    <li><a href="">Início</a></li>
-                    <li><a href="">Agendar</a></li>
-                    <li><a href="">Projetos</a></li>
-                    <li><a href="">Login</a></li>
-                </ul>
-            </motion.nav>
-            
+                >
+                    <ul>
+                        <li><a href="">Início</a></li>
+                        <li><a href="">Agendar</a></li>
+                        <li><a href="">Projetos</a></li>
+                        <li><a href="">Login</a></li>
+                    </ul>
+                </motion.nav>
+
 
 
 
 
                 <section className="hero">
+
+
+                    <div className="hero-overlay" />
+
                     <div className="herotxt">
                         <motion.div
-                            initial={{ opacity: 0, y: 100, filter: "blur(10px)" }}
-                            animate={visible ? { opacity: 1, y: 0, filter: "blur(0px)", } : { opacity: 0, y: -100, filter: "blur(10px)" }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            initial={{ opacity: 0, y: 120, filter: "blur(10px)" }}
+                            animate={
+                                visible
+                                    ? { opacity: 1, y: 0, filter: "blur(0px)" }
+                                    : { opacity: 0, y: -120, filter: "blur(10px)" }
+                            }
+                            transition={{ duration: 1.6, ease: "easeInOut" }}
                             viewport={{ amount: 0.8 }}
                             onViewportEnter={() => setVisible(true)}
                             onViewportLeave={() => setVisible(false)}
-
+                            className="hero-content"
                         >
-                            <h1>Ghostcat</h1>
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 3, ease: "easeInOut" }}
-
+                            <motion.h1
+                                initial={{ scale: 0.9 }}
+                                animate={{ scale: 1 }}
+                                transition={{ duration: 1.2, ease: "easeOut" }}
                             >
-                                <p >A dor é momentânea. O estilo, eterno.</p>
-                            </motion.div>
+                                Ghostcat
+                            </motion.h1>
 
+                            <motion.p
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8, duration: 1.5 }}
+                            >
+                                Arte na pele, nas mãos e na alma.
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 1.4, duration: 0.8 }}
+                                className="hero-buttons"
+                            >
+
+
+                            </motion.div>
                         </motion.div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -381,10 +454,83 @@ export default function Home() {
 
                 <section className="testemunhas">
 
+                    <section className="testemunhas-section">
+                        <div className="background">
+                            <TestemunhasBackground />
+                        </div>
+
+                        <motion.h1
+                            className="title"
+
+                        >
+                            O que dizem sobre nosso trabalho?
+                        </motion.h1>
+
+
+                        <div className="conteudo-testemunhas">
+
+
+                            <motion.div
+
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
+                                viewport={{ once: false, amount: 0.3 }}
+                                className="card">
+                                <RotatingCard />
+
+                            </motion.div>
+
+                            <div className="conteudo-img">
+                                <motion.img
+                                    initial={{ opacity: 0, x: 100 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 1, ease: "easeInOut" }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    src="/img/ghostcat.png" alt="" />
+
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                    <div className="svg-fullscreen">
+                        <svg
+                            ref={svgRef}
+                            viewBox="0 0 1440 320"
+                            preserveAspectRatio="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                position: "absolute",
+                                top: "-30%",
+                                left: 0
+                            }}
+                        >
+                            <path
+                                ref={pathRef}
+                                d="M0,192 
+         C120,160 240,128 360,122.7 
+         C480,117 600,139 720,165.3 
+         C840,192 960,224 1080,218.7 
+         C1200,213 1320,171 1440,149.3"
+                                stroke="#7C0185"
+                                strokeWidth="18"
+                                fill="none"
+                                strokeLinecap="round"
+                            />
+                        </svg>
+                    </div>
+
+
+
 
                 </section>
 
-            </container>
+
+            </container >
 
 
 
